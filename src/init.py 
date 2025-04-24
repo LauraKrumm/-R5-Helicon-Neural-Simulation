@@ -1,0 +1,8 @@
+"""
+R5-Helicon Neural Simulation package.
+
+This package contains modules for simulating and analyzing
+interactions between R5 and Helicon neuron populations.
+"""
+
+__version__ = '1.0.0'
