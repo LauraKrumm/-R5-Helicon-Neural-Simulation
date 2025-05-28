@@ -89,27 +89,6 @@ python src/run_simulation.py --runtimes 5
 Additional parameters can be modified directly in the `run_simulation.py` file:
 - Various neuron parameters (tau, connectivity strengths, etc.)
 
-### Analyzing Results
 
-After running the simulation, results are saved to the `data/simulation_results` directory. The plotting functions in `R5_Hel_plots.py` can be used to visualize the results:
 
-```python
-import R5_Hel_plots
 
-# Plot power spectral density
-R5_Hel_plots.plot_PSD(daytime='morning', label_diver_neuron='drv_off')
-
-# Plot correlation between R5 and Helicon populations
-R5_Hel_plots.corr_coef_R5_Hel(label_diver_neuron='drv_off')
-```
-
-## Reproduction Instructions
-
-To reproduce the quantitative results in the manuscript:
-
-1. Run the full simulation for both day and night conditions:
-   ```bash
-   python src/run_simulation.py
-   ```
-
-2. After the simulation completes, the key figures from the manuscript will be automatically generated and saved to the `docs/figures` directory.
