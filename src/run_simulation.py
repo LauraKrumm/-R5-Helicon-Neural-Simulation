@@ -15,7 +15,6 @@ from brian2 import *
 
 # Import local modules
 from R5_Hel_definitions import run_and_plot, connectome, creat_visual_inputs
-import R5_Hel_plots
 import path_utils
 
 def main(args):
@@ -126,27 +125,6 @@ def main(args):
             np.save(path_utils.path_to_files + f'mean_corr_coefs_hel_{sim_time}_{label_diver_neuron}.npy', mean_corr_coefs_hel)
 
         print(f'Offsets_{sim_time}', offsets)
-
-    # Generate plots
-    print("\nGenerating plots...")
-    if 'morning' in simulation_times:
-        R5_Hel_plots.plot_PSD(daytime='morning', label_diver_neuron='drv_off')
-        R5_Hel_plots.plot_PSD_db(daytime='morning', label_diver_neuron='drv_off')
-        R5_Hel_plots.compound_signal_R5_Hel(daytime='morning', label_diver_neuron='drv_off')
-        
-    if 'night' in simulation_times:
-        R5_Hel_plots.plot_PSD(daytime='night', label_diver_neuron='drv_off')
-        R5_Hel_plots.plot_PSD_db(daytime='night', label_diver_neuron='drv_off')
-        R5_Hel_plots.compound_signal_R5_Hel(daytime='night', label_diver_neuron='drv_off')
-
-    # Plot comparison plots if both conditions were simulated
-    if 'morning' in simulation_times and 'night' in simulation_times:
-        R5_Hel_plots.corr_coef_R5_Hel(label_diver_neuron='drv_off')
-        R5_Hel_plots.plot_day_night(type='r5', label_diver_neuron='drv_off')
-        R5_Hel_plots.plot_day_night(type='hel', label_diver_neuron='drv_off')
-
-    print("Simulation complete!")
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='R5-Helicon Neural Simulation')
